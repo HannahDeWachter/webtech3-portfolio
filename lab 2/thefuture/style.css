@@ -6,8 +6,8 @@
 .grid div{
     background-color: red;
     text-transform: uppercase;
-    font-size: 30px;
-    padding: 10px;
+    font-size: 35px;
+    padding: 15px;
     text-align: center;
     display: flex;
     align-items: center;
@@ -27,7 +27,7 @@ div.yellow{
 @media(min-width: 1050px){
     .grid{
         grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: repeat(3, 200px);
+        grid-template-rows: repeat(3, 240px);
     }
     .blue{
         grid-column: 3/4;
