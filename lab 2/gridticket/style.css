@@ -1,0 +1,56 @@
+body{
+    margin: 0;
+    width: 300px;
+}
+.ticket{
+    background-image: url(background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.header{
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+.header h1{
+    padding-top: 10px;
+    margin-bottom: 5px;
+}
+
+.header p{
+    font-size: 14px;
+    margin-top: 0;
+    padding-bottom: 10px;
+}
+
+img{
+    display: block;
+    width: 200px;
+    padding: 35px;
+    margin: auto;
+}
+
+div.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.ticket-price{
+    grid-column: 1/span 2;
+}
+
+div h4{
+    border: solid 1px black;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+}
+
+.hidden{
+    display: none;
+}
+
+@media(minwidth: 900px){
+
+}
