@@ -1,0 +1,40 @@
+.grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+}
+.grid div{
+    background-color: red;
+    text-transform: uppercase;
+    font-size: 30px;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+div.blue{
+    background-color: cyan;
+}
+div.yellow{
+    background-color: yellow;
+}
+@media(min-width: 600px){
+    .grid{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media(min-width: 1050px){
+    .grid{
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(3, 200px);
+    }
+    .blue{
+        grid-column: 3/4;
+        grid-row: 1/4;
+    }
+    .yellow{
+        grid-column: 4/6;
+        grid-row: 2/4;
+    }
+}
