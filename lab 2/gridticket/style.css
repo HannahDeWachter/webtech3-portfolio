@@ -31,7 +31,7 @@ img{
     margin: auto;
 }
 
-div.grid{
+div.info{
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -57,7 +57,7 @@ div h4{
     }
     .ticket{
         display: grid;
-        grid-template-columns: 3fr 2fr;
+        grid-template-columns: 2fr 1fr;
     }
     .header{
         display: grid;
@@ -82,15 +82,20 @@ div h4{
         margin: 0;
         grid-row: 1/span 2;
         grid-column: 2;
+        padding: 50px;
     }
-    div .grid{
+    div .info{
         grid-template-columns: 1fr 1fr 1fr;
+    }
+    .info h4{
+        padding-top: 25px;
     }
     .ticket-price{
         grid-column: 3;
     }
-    .grid p{
+    .info p{
         grid-column: 1 / span 3;
+        padding-top: 30px;
     }
     .hidden{
         display: block;
