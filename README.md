@@ -7,5 +7,6 @@
 **Grid Garden:** ![screenshot from GridGarden](https://github.com/HannahDeWachter/webtech3-portfolio/blob/master/lab%202/Screenshot-GridGarden.PNG)
 
 #### Links to CodePen:
-**The Future:** [TheFuture](https://codepen.io/HannahDW/pen/KKpmpVj)
-**Grid Ticket:** [GridTicket](https://codepen.io/HannahDW/pen/KKpmpgO)
+[TheFuture](https://codepen.io/HannahDW/pen/KKpmpVj)
+
+[GridTicket](https://codepen.io/HannahDW/pen/KKpmpgO)
