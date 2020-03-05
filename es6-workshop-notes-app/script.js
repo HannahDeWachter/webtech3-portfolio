@@ -13,6 +13,7 @@ class Note {
     newNote.appendChild(newP); // <div class="card"><p>Todo</p>
 
     let newA = document.createElement("a");
+    newNote.setAttribute("class", "card-remove");
     newA.innerHTML = "Remove";
     newNote.appendChild(newA);
 
