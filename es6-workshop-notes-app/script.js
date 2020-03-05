@@ -10,10 +10,11 @@ class Note {
 
     let newP = document.createElement("p"); // <p>Todo</p>
     newP.innerHTML = title;
-
     newNote.appendChild(newP); // <div class="card"><p>Todo</p>
 
-    //let newA = document.createElement("a");
+    let newA = document.createElement("a");
+    newA.innerHTML = "Remove";
+    newNote.appendChild(newA);
 
 
     // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
