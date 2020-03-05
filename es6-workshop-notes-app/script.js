@@ -16,8 +16,7 @@ class Note {
     newA.innerHTML = "Remove";
     newNote.appendChild(newA);
 
-
-    // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
+    newA.addEventListener('click', this.remove.bind(newNote));
 
     return newNote;
   }
@@ -37,6 +36,7 @@ class Note {
   remove() {
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
+    this.remove();
   }
 }
 
