@@ -33,18 +33,17 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
-    // me
-    /* let localNote = JSON.parse(localStorage.getItem('title'));
-    if (localNote == null) {
-      localNote = [];
-    }
-    localNote.push(this.title);
-    localStorage.setItem('title', JSON.stringify(localNote)); */
+    // me + bron: https://www.youtube.com/watch?v=k8yJCeuP6I8
+    let text = document.querySelector("#txtAddNote").value;
+    localStorage.setItem('title', JSON.stringify(text));
+    let localNote = JSON.parse(localStorage.getItem('title'));
+    console.log(localStorage);
+    console.log(localNote);
   }
 
   remove() {
     // in this function, 'this' will refer to the current note element
-    // localStorage.removeItem('title');
+    localStorage.removeItem('title');
     this.remove();
   }
 }
@@ -70,14 +69,22 @@ class App {
     });
 
     // me
-    // this.loadNotesFromStorage();
+    this.loadNotesFromStorage();
   }
 
   loadNotesFromStorage() {
     // HINT🤩
     // load all notes from storage here and add them to the screen
-    // let localNote = JSON.parse(localStorage.getItem('title'));
-    // console.log(localNote);
+    // me + bron: https://www.youtube.com/watch?v=k8yJCeuP6I8
+    let text = document.querySelector("#txtAddNote").value;
+    if (text) {
+      localStorage.setItem('title', JSON.stringify(text));
+    }
+    for (let i = 0; i < localStorage.length; i++) {
+      let localNote = JSON.parse(localStorage.getItem('title'));
+      let note = new Note(localNote);
+      note.add();
+    }
   }
 
   createNote(e) {
@@ -89,14 +96,14 @@ class App {
     note.add();
 
     // me
-    // note.saveToStorage();
-    // this.reset();
+    note.saveToStorage();
+    //this.reset();
   }
 
   reset() {
     // this function should reset the form
     // me 
-    // localStorage.clear();
+    //localStorage.clear();
   }
 
 }
