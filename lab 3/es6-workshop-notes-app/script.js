@@ -43,7 +43,18 @@ class Note {
 
   remove() {
     // in this function, 'this' will refer to the current note element
-    localStorage.removeItem('title');
+    // localStorage.removeItem('title');
+    let todos = JSON.parse(localStorage.getItem('title'));
+    console.log(todos);
+    let text = this.querySelector(`p`).innerHTML;
+    const arrayIndex = todos.indexOf(text);
+    // bron: https://stackoverflow.com/questions/5767325/how-can-i-remove-a-specific-item-from-an-array
+    if (arrayIndex > -1) {
+      todos.splice(arrayIndex, 1);
+    }
+    
+    localStorage.setItem('title', JSON.stringify(todos));
+    
     this.remove();
   }
 }
