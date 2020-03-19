@@ -34,9 +34,9 @@ class Note {
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
     // me + bron: https://www.youtube.com/watch?v=k8yJCeuP6I8
-    let text = document.querySelector("#txtAddNote").value;
-    localStorage.setItem('title', JSON.stringify(text));
-    let localNote = JSON.parse(localStorage.getItem('title'));
+    let localNote = JSON.parse(localStorage.getItem('title')) || [];
+    localNote.push(this.title);
+    localStorage.setItem('title', JSON.stringify(localNote));
     console.log(localStorage);
     console.log(localNote);
   }
@@ -50,8 +50,6 @@ class Note {
 
 class App {
   constructor() {
-    console.log("👊🏼 The Constructor!");
-
     // HINT🤩
     // clicking the button should work
     // klassikaal
@@ -75,16 +73,11 @@ class App {
   loadNotesFromStorage() {
     // HINT🤩
     // load all notes from storage here and add them to the screen
-    // me + bron: https://www.youtube.com/watch?v=k8yJCeuP6I8
-    let text = document.querySelector("#txtAddNote").value;
-    if (text) {
-      localStorage.setItem('title', JSON.stringify(text));
-    }
-    for (let i = 0; i < localStorage.length; i++) {
-      let localNote = JSON.parse(localStorage.getItem('title'));
-      let note = new Note(localNote);
-      note.add();
-    }
+    // me + bron: https://codepen.io/goodbytes/pen/ExjRGGx?editors=1010
+    let items = JSON.parse(localStorage.getItem('title')) || [];
+    items.forEach(localNote => {
+      createNote(localNote);
+    });
   }
 
   createNote(e) {
@@ -102,7 +95,7 @@ class App {
 
   reset() {
     // this function should reset the form
-    // me 
+    // me + bron: https://blog.logrocket.com/the-complete-guide-to-using-localstorage-in-javascript-apps-ba44edb53a36/
     //localStorage.clear();
   }
 
