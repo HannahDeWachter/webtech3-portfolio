@@ -76,7 +76,8 @@ class App {
     // me + bron: https://codepen.io/goodbytes/pen/ExjRGGx?editors=1010
     let items = JSON.parse(localStorage.getItem('title')) || [];
     items.forEach(localNote => {
-      createNote(localNote);
+      let note = new Note(localNote);
+      note.add();
     });
   }
 
