@@ -12,5 +12,9 @@
 [GridTicket](https://codepen.io/HannahDW/pen/KKpmpgO)
 
 ## Lab 3 - ES6
-#### Links to CodePen:
+#### Link to CodePen:
 [NotesApp](https://codepen.io/HannahDW/pen/jOPKgJe)
+
+## Lab 4 - API
+#### Link to CodePen:
+[WeatherApp](https://codepen.io/HannahDW/pen/MWwqpLq)
