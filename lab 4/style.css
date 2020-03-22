@@ -9,10 +9,11 @@ body{
 }
 img#logo{
     width: 50%;
-    padding: 5px;
+    padding: 10px;
 }
 img#icon{
-    color: white;
+    padding-left: 40px;
+    padding-right: 40px;
     width: 100px;
 }
 #temp{
@@ -28,5 +29,5 @@ img#article{
     padding: 30px;
 }
 #adText{
-    display: block;
+    margin-top: 0;
 }
