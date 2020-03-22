@@ -22,7 +22,7 @@ class Weather {
         }).then(data => {
             let summaryText = data.currently.summary;
             let tempDegrees = Math.round(data.currently.temperature);
-            document.querySelector("#weather").innerHTML = summaryText;
+            document.querySelector("#weather").innerHTML = tempDegrees + " °C" + "<br />" + summaryText;
         }).catch(err => {
             console.log(err);
         });
