@@ -10,3 +10,7 @@
 [TheFuture](https://codepen.io/HannahDW/pen/KKpmpVj)
 
 [GridTicket](https://codepen.io/HannahDW/pen/KKpmpgO)
+
+## Lab 3 - ES6
+#### Links to CodePen:
+[NotesApp](https://codepen.io/HannahDW/pen/jOPKgJe)
