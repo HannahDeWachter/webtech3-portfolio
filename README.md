@@ -18,3 +18,6 @@
 ## Lab 4 - API
 #### Link to CodePen:
 [WeatherApp](https://codepen.io/HannahDW/pen/MWwqpLq)
+
+## MongoDB University
+![screenshot from MongoDB-certificate](https://github.com/HannahDeWachter/webtech3-portfolio/blob/master/MongoDB/mongodb-university-screenshot.PNG)
