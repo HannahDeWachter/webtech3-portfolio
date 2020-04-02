@@ -21,52 +21,14 @@ class Weather {
             return response.json();
         }).then(data => {
             console.log(data);
-            let weatherIcon = data.currently.icon;
 
+            let weatherIcon = data.currently.icon;
             let summaryText = data.currently.summary;
             let tempDegrees = Math.round(data.currently.temperature);
             document.querySelector("#temp").innerHTML = tempDegrees + " °C";
             document.querySelector("#summary").innerHTML = summaryText;
 
-            // jas: https://s7d1.scene7.com/is/image/TheNorthFaceBrand/3ERL1SK_prod1?$transparent-png$&wid=600
-            // bril: https://www.merkbrillen.nl/uploads/pagetree/images/Ray-Ban-aviator-3025.png?w=1024&algo=fill
-            // tshirt: https://cdn.zeeman.com/media/catalog/product/cache/5050dbc22447fab33b3d2c8a729076f7/2/0/2020020684651_Front_01.png
-
-            switch (weatherIcon) {
-                case "clear-day":
-                    document.getElementById("icon").src = "https://image.flaticon.com/icons/svg/106/106061.svg";
-                    document.getElementById("article").src = "https://www.merkbrillen.nl/uploads/pagetree/images/Ray-Ban-aviator-3025.png?w=1024&algo=fill";
-                    break;
-                case "partly-cloudy-day":
-                    document.getElementById("icon").src = "https://image.flaticon.com/icons/svg/106/106068.svg";
-                    document.getElementById("article").src = "https://cdn.zeeman.com/media/catalog/product/cache/5050dbc22447fab33b3d2c8a729076f7/2/0/2020020684651_Front_01.png";
-                    break;
-                case "rain":
-                    document.getElementById("icon").src = "https://image.flaticon.com/icons/svg/106/106059.svg";
-                    document.getElementById("article").src = "https://s7d1.scene7.com/is/image/TheNorthFaceBrand/3ERL1SK_prod1?$transparent-png$&wid=600";
-                    break;
-                case "wind":
-                    document.getElementById("icon").src = "https://image.flaticon.com/icons/svg/106/106040.svg";
-                    document.getElementById("article").src = "https://s7d1.scene7.com/is/image/TheNorthFaceBrand/3ERL1SK_prod1?$transparent-png$&wid=600";
-                    break;
-                case "cloudy":
-                    document.getElementById("icon").src = "https://image.flaticon.com/icons/svg/106/106064.svg";
-                    document.getElementById("article").src = "https://s7d1.scene7.com/is/image/TheNorthFaceBrand/3ERL1SK_prod1?$transparent-png$&wid=600";
-                    break;
-                case "fog":
-                    document.getElementById("icon").src = "https://image.flaticon.com/icons/svg/106/106052.svg";
-                    document.getElementById("article").src = "https://s7d1.scene7.com/is/image/TheNorthFaceBrand/3ERL1SK_prod1?$transparent-png$&wid=600";
-                    break;
-                case "snow":
-                    document.getElementById("icon").src = "https://image.flaticon.com/icons/svg/106/106056.svg";
-                    document.getElementById("article").src = "https://s7d1.scene7.com/is/image/TheNorthFaceBrand/3ERL1SK_prod1?$transparent-png$&wid=600";
-                    break;
-                default:
-                    document.getElementById("icon").src = "https://image.flaticon.com/icons/svg/106/106068.svg";
-                    document.getElementById("article").src = "https://s7d1.scene7.com/is/image/TheNorthFaceBrand/3ERL1SK_prod1?$transparent-png$&wid=600";
-                    break;
-            }
-
+            this.getMeal(weatherIcon);
         }).catch(err => {
             console.log(err);
         });
@@ -74,6 +36,82 @@ class Weather {
 
     errorLocation(err) {
         console.log(err);
+    }
+
+    getMeal(weatherIcon) {
+        let mealID;
+
+        switch (weatherIcon) {
+            case "clear-day":
+            case "partly-cloudy-day":
+            default:
+                mealID = 52833;
+                break;
+            case "rain":
+            case "wind":
+            case "cloudy":
+                mealID = 52855;
+                break;
+            case "fog":
+            case "snow":
+                mealID = 52922;
+                break;
+        }
+
+        let url = `https://cors-anywhere.herokuapp.com/https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`;
+        fetch(url).then(response => {
+            return response.json();
+        }).then(data => {
+            console.log(data);
+            let mealImage = data.meals[0].strMealThumb;
+            let mealName = data.meals[0].strMeal;
+
+            switch (weatherIcon) {
+                case "clear-day":
+                    document.getElementById("adText").innerHTML = "It's sunny. Try this " + mealName + "!";
+                    document.getElementById("icon").src = "https://image.flaticon.com/icons/svg/106/106061.svg";
+                    document.getElementById("meal").src = mealImage;
+                    break;
+                case "partly-cloudy-day":
+                    document.getElementById("adText").innerHTML = "It's sunny. Try this " + mealName + "!";
+                    document.getElementById("icon").src = "https://image.flaticon.com/icons/svg/106/106068.svg";
+                    document.getElementById("meal").src = mealImage;
+                    break;
+                case "rain":
+                    document.getElementById("adText").innerHTML = "It's cold outside. Try this " + mealName + "!";
+                    document.getElementById("icon").src = "https://image.flaticon.com/icons/svg/106/106059.svg";
+                    document.getElementById("meal").src = mealImage;
+                    break;
+                case "wind":
+                    document.getElementById("adText").innerHTML = "It's cold outside. Try this " + mealName + "!";
+                    document.getElementById("icon").src = "https://image.flaticon.com/icons/svg/106/106040.svg";
+                    document.getElementById("meal").src = mealImage;
+                    break;
+                case "cloudy":
+                    document.getElementById("adText").innerHTML = "It's cold outside. Try this " + mealName + "!";
+                    document.getElementById("icon").src = "https://image.flaticon.com/icons/svg/106/106064.svg";
+                    document.getElementById("meal").src = mealImage;
+                    break;
+                case "fog":
+                    document.getElementById("adText").innerHTML = "It's cold outside. Try this " + mealName + "!";
+                    document.getElementById("icon").src = "https://image.flaticon.com/icons/svg/106/106052.svg";
+                    document.getElementById("meal").src = mealImage;
+                    break;
+                case "snow":
+                    document.getElementById("adText").innerHTML = "It's cold outside. Try this " + mealName + "!";
+                    document.getElementById("icon").src = "https://image.flaticon.com/icons/svg/106/106056.svg";
+                    document.getElementById("meal").src = mealImage;
+                    break;
+                default:
+                    document.getElementById("adText").innerHTML = "It's sunny. Try this " + mealName + "!";
+                    document.getElementById("icon").src = "https://image.flaticon.com/icons/svg/106/106068.svg";
+                    document.getElementById("meal").src = mealImage;
+                    break;
+            }
+
+        }).catch(err => {
+            console.log(err);
+        });
     }
 }
 
