@@ -1,20 +1,20 @@
 const getAllMessages = (req, res) => {
-    res.send('{ “message”: “GETTING messages” }');
+    res.json('{ “message”: “GETTING messages” }');
 }
 const getIdMessage = (req, res) => {
-    res.send('{ “message”: “GETTING message with ID ” }' + req.params.id);
+    res.json('{ “message”: “GETTING message with ID ” }' + req.params.id);
 }
 const create = (req, res) => {
-    res.send('{“message”: “POSTING a new message for user Pikachu”}');
+    res.json('{“message”: “POSTING a new message for user Pikachu”}');
 }
 const update = (req, res) => {
-    res.send('{“message”: “UPDATING a message with ID ”}' + req.params.id);
+    res.json('{“message”: “UPDATING a message with ID ”}' + req.params.id);
 }
 const remove = (req, res) => {
-    res.send('{“message”: “DELETING a message with ID ”}' + req.params.id);
+    res.json('{“message”: “DELETING a message with ID ”}' + req.params.id);
 }
 const getUserMessages = (req, res) => {
-    res.send('{“message”: “GETTING message for username ”}' + req.params.username);
+    res.json('{“message”: “GETTING message for username ”}' + req.params.username);
 }
 
 module.exports.getAllMessages = getAllMessages;
