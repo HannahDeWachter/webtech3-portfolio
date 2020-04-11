@@ -30,3 +30,8 @@ const getUserMessages = (req, res) => {
 }
 
 module.exports.getAllMessages = getAllMessages;
+module.exports.getIdMessage = getIdMessage;
+module.exports.create = create;
+module.exports.update = update;
+module.exports.remove = remove;
+module.exports.getUserMessages = getUserMessages;
