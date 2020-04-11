@@ -1,6 +1,6 @@
 const getAllMessages = (req, res) => {
     res.json({
-        "message": "GETTING messages"
+        "message": "GETTING messages " + req.params
     });
 }
 const getIdMessage = (req, res) => {
