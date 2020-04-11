@@ -6,6 +6,7 @@
     "start": "./node_modules/.bin/nodemon ./bin/www"
   },
   "dependencies": {
+    "acorn": "^7.1.1",
     "cookie-parser": "~1.4.4",
     "debug": "^4.1.1",
     "express": "^4.17.1",
