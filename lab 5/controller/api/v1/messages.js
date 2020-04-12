@@ -51,6 +51,7 @@ const create = (req, res) => {
         }
     });
 }
+// bron: https://mongoosejs.com/docs/api.html#model_Model.findOneAndUpdate
 const update = (req, res) => {
     Message.findOneAndUpdate({ _id: req.params.id }, { text: req.body.text }, (err, doc) => {
         if (err) {
@@ -67,6 +68,7 @@ const update = (req, res) => {
         }
     });
 }
+// bron: https://www.youtube.com/watch?v=GrKoJwJkBIg
 const remove = (req, res) => {
     Message.findByIdAndDelete(req.params.id, (err) => {
         if (err) {
