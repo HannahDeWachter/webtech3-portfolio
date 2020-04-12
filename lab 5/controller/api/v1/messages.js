@@ -10,7 +10,6 @@ const getAllMessages = (req, res) => {
         }
         if (!err) {
             res.json({
-                "status": "succes",
                 "message": docs
             });
         }
@@ -26,7 +25,6 @@ const getIdMessage = (req, res) => {
         }
         if (!err) {
             res.json({
-                "status": "succes",
                 "message": docs
             });
         }
@@ -34,8 +32,8 @@ const getIdMessage = (req, res) => {
 }
 const create = (req, res) => {
     let message = new Message();
-    message.text = req.body.text;
-    message.user = req.body.user;
+    message.text = req.body.message.text;
+    message.user = req.body.message.user;
     message.save((err, doc) => {
         if (err) {
             res.json({
@@ -45,7 +43,6 @@ const create = (req, res) => {
         }
         if (!err) {
             res.json({
-                "status": "succes",
                 "message": doc
             });
         }
@@ -53,7 +50,7 @@ const create = (req, res) => {
 }
 // bron: https://mongoosejs.com/docs/api.html#model_Model.findOneAndUpdate
 const update = (req, res) => {
-    Message.findOneAndUpdate({ _id: req.params.id }, { text: req.body.text }, (err, doc) => {
+    Message.findOneAndUpdate({ _id: req.params.id }, { text: req.body.message.text }, (err, doc) => {
         if (err) {
             res.json({
                 "status": "error",
@@ -62,7 +59,6 @@ const update = (req, res) => {
         }
         if (!err) {
             res.json({
-                "status": "succes",
                 "message": doc
             });
         }
@@ -79,13 +75,12 @@ const remove = (req, res) => {
         }
         if (!err) {
             res.json({
-                "status": "succes",
-                "message": "DELETING a message with ID " + req.params.id
+                "message": "DELETED a message with ID " + req.params.id
             });
         }
     });
 }
-const getUserMessages = (req, res) => {
+/* const getUserMessages = (req, res) => {
     Message.find({ "user": req.params.username }, (err, docs) => {
         if (err) {
             res.json({
@@ -95,16 +90,15 @@ const getUserMessages = (req, res) => {
         }
         if (!err) {
             res.json({
-                "status": "succes",
                 "message": docs
             });
         }
     });
-}
+} */
 
 module.exports.getAllMessages = getAllMessages;
 module.exports.getIdMessage = getIdMessage;
 module.exports.create = create;
 module.exports.update = update;
 module.exports.remove = remove;
-module.exports.getUserMessages = getUserMessages;
+// module.exports.getUserMessages = getUserMessages;
