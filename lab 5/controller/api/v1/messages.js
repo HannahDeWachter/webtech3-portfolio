@@ -17,7 +17,7 @@ const getAllMessages = (req, res) => {
     });
 }
 const getIdMessage = (req, res) => {
-    Message.find({ _id: req.params.id }, (err, docs) => {
+    Message.findOne({ _id: req.params.id }, (err, docs) => {
         if (err) {
             res.json({
                 "status": "error",
@@ -52,9 +52,19 @@ const create = (req, res) => {
     });
 }
 const update = (req, res) => {
-    res.json({
-        "status": "succes",
-        "message": "UPDATING a message with ID " + req.params.id
+    Message.findOneAndUpdate({ _id: req.params.id }, { text: req.body.text }, (err, doc) => {
+        if (err) {
+            res.json({
+                "status": "error",
+                "message": "Could not update message with ID " + req.params.id
+            });
+        }
+        if (!err) {
+            res.json({
+                "status": "succes",
+                "message": doc
+            });
+        }
     });
 }
 const remove = (req, res) => {
