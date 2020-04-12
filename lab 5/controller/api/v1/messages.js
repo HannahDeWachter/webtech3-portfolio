@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const messageSchema = new Schema({
     user: String,
-    text: String
+    text: {
+        type: String,
+        required: true
+    }
 });
 const Message = mongoose.model('Message', messageSchema);
 
@@ -28,9 +31,15 @@ const getIdMessage = (req, res) => {
 }
 const create = (req, res) => {
     let message = new Message();
-    message.text = "My first message";
+    // message.text = "My first message";
     message.user = "Pickachu";
     message.save((err, doc) => {
+        if(err){
+            res.json({
+                "status": "error",
+                "message": "Could not save this message"
+            });
+        }
         if (!err) {
             res.json({
                 "status": "succes",
