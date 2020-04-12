@@ -7,8 +7,13 @@ const messageSchema = new Schema({
 const Message = mongoose.model('Message', messageSchema);
 
 const getAllMessages = (req, res) => {
-    res.json({
-        "message": "GETTING messages"
+    Message.find({}, (err, docs) => {
+        if (!err) {
+            res.json({
+                "status": "succes",
+                "message": docs
+            });
+        }
     });
 }
 const getIdMessage = (req, res) => {
