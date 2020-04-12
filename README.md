@@ -19,5 +19,11 @@
 #### Link to CodePen:
 [WeatherApp](https://codepen.io/HannahDW/pen/MWwqpLq)
 
+## Lab 5 - NodeJS
+#### Link to other repo:
+[Lab5-repo](https://github.com/HannahDeWachter/Lab5)
+#### Link to CodePen:
+[Codepen](https://codepen.io/HannahDW/pen/mdeJrpG)
+
 ## MongoDB University
 ![screenshot from MongoDB-certificate](https://github.com/HannahDeWachter/webtech3-portfolio/blob/master/MongoDB/mongodb-university-screenshot.PNG)
