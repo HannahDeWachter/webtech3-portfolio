@@ -22,8 +22,8 @@ const getIdMessage = (req, res) => {
 }
 const create = (req, res) => {
     let message = new Message();
-    message.text = "My first message";
-    message.user = "Pickachu";
+    message.text = req.body.text;
+    message.user = req.body.user;
     message.save((err, doc) => {
         if (err) {
             res.json({
