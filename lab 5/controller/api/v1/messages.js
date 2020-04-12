@@ -50,8 +50,13 @@ const remove = (req, res) => {
     });
 }
 const getUserMessages = (req, res) => {
-    res.json({
-        "message": "GETTING message for username " + req.params.username
+    Message.find({ "user": req.params.username }, (err, docs) => {
+        if (!err) {
+            res.json({
+                "status": "succes",
+                "message": docs
+            });
+        }
     });
 }
 
