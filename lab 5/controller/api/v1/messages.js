@@ -2,6 +2,12 @@ const Message = require('../../../models/Message');
 
 const getAllMessages = (req, res) => {
     Message.find({}, (err, docs) => {
+        if (err) {
+            res.json({
+                "status": "error",
+                "message": "Could not messages"
+            });
+        }
         if (!err) {
             res.json({
                 "status": "succes",
@@ -12,6 +18,12 @@ const getAllMessages = (req, res) => {
 }
 const getIdMessage = (req, res) => {
     Message.find({ _id: req.params.id }, (err, docs) => {
+        if (err) {
+            res.json({
+                "status": "error",
+                "message": "Could not find the message with ID " + req.params.id
+            });
+        }
         if (!err) {
             res.json({
                 "status": "succes",
@@ -41,16 +53,34 @@ const create = (req, res) => {
 }
 const update = (req, res) => {
     res.json({
+        "status": "succes",
         "message": "UPDATING a message with ID " + req.params.id
     });
 }
 const remove = (req, res) => {
-    res.json({
-        "message": "DELETING a message with ID " + req.params.id
+    Message.findByIdAndDelete(req.params.id, (err) => {
+        if (err) {
+            res.json({
+                "status": "error",
+                "message": "Could not delete message with ID " + req.params.id
+            });
+        }
+        if (!err) {
+            res.json({
+                "status": "succes",
+                "message": "DELETING a message with ID " + req.params.id
+            });
+        }
     });
 }
 const getUserMessages = (req, res) => {
     Message.find({ "user": req.params.username }, (err, docs) => {
+        if (err) {
+            res.json({
+                "status": "error",
+                "message": "Could not find messages from " + req.params.username
+            });
+        }
         if (!err) {
             res.json({
                 "status": "succes",
