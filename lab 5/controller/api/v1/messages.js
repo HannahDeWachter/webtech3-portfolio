@@ -17,8 +17,13 @@ const getAllMessages = (req, res) => {
     });
 }
 const getIdMessage = (req, res) => {
-    res.json({
-        "message": "GETTING message with ID " + req.params.id
+    Message.find({ _id: req.params.id }, (err, docs) => {
+        if (!err) {
+            res.json({
+                "status": "succes",
+                "message": docs
+            });
+        }
     });
 }
 const create = (req, res) => {
