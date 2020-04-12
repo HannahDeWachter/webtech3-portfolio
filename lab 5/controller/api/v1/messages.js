@@ -4,6 +4,7 @@ const messageSchema = new Schema({
     user: String,
     text: String
 });
+const Message = mongoose.model('Message', messageSchema);
 
 const getAllMessages = (req, res) => {
     res.json({
