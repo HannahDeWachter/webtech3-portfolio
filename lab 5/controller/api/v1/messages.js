@@ -1,6 +1,13 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const messageSchema = new Schema({
+    user: String,
+    text: String
+});
+
 const getAllMessages = (req, res) => {
     res.json({
-        "message": "GETTING messages " + req.params
+        "message": "GETTING messages"
     });
 }
 const getIdMessage = (req, res) => {
