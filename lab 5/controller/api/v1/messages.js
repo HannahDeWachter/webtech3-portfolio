@@ -17,8 +17,16 @@ const getIdMessage = (req, res) => {
     });
 }
 const create = (req, res) => {
-    res.json({
-        "message": "POSTING a new message for user Pikachu"
+    let message = new Message();
+    message.text = "My first message";
+    message.user = "Pickachu";
+    message.save((err, doc) => {
+        if (!err) {
+            res.json({
+                "status": "succes",
+                "message": doc
+            });
+        }
     });
 }
 const update = (req, res) => {
