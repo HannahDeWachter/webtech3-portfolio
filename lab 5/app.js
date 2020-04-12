@@ -8,8 +8,10 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const apiV1Messagesrouter = require('./routes/api/v1/messages');
 
+const config = require('config');
+
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/messagesapp', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(config.get('Database.conn'), { useNewUrlParser: true, useUnifiedTopology: true });
 
 var app = express();
 
